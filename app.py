@@ -29,6 +29,8 @@ def convert_image_to_YCrCb(image_path):
     plt.imshow(Cb)
     plt.title('Cb')
     plt.show()
+
+    
     
     def ycrcb_to_rgb(image):
         # image = cv2.imread(image_path)
@@ -48,5 +50,4 @@ def convert_image_to_YCrCb(image_path):
     ycrcb_to_rgb(ycrcb_image)
 
 convert_image_to_YCrCb('/home/yassg4mer/Project/tp_tmn/echentillonnage/original_image.bmp')
-
 
