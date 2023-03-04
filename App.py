@@ -5,10 +5,9 @@ class App():
     def __init__(self, image_path):
         self.image_path = image_path
         self.image = cv2.imread(image_path)
-        self.yrccb_image  = self.convert_image_to_YCrCb(self.image)
-        self.ycrcb_to_rgb(self.yrccb_image)
+        self.ycrcb_to_rgb(self.image_to_ycrcb(self.image))
 
-    def convert_image_to_YCrCb(self, image):
+    def image_to_ycrcb(self, image):
 
         # Img to YCrCb
         R, G, B = cv2.split(image)
