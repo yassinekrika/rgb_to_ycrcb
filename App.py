@@ -11,7 +11,8 @@ class App():
 
         # Img to YCrCb
         R, G, B = cv2.split(image)
-
+        
+        # calculate Y Cr Cb
         Y = 0.299 * R + 0.587 * G + 0.114 * B
         Cb = 128 + (-0.169 * R - 0.331 * G + 0.5 * B)
         Cr = 128 + (0.5 * R - 0.419 * G - 0.081 * B)
@@ -37,16 +38,15 @@ class App():
         return ycrcb_image
     
     def ycrcb_to_rgb(self, image):
-        # image = cv2.imread(image_path)
-        # Split the YCrCb channels
+       
         Y, Cr, Cb = cv2.split(image)
 
-        # Calculate the R, G, and B channels
+        # calculate R G B
         R = Y + 1.403 * (Cr - 128)
         G = Y - 0.344 * (Cb - 128) - 0.714 * (Cr - 128)
         B = Y + 1.773 * (Cb - 128)
 
-        # Stack the R, G, and B channels to form the RGB image
+        
         rgb_image = cv2.merge((R, G, B))
 
         cv2.imwrite("/home/yassg4mer/Project/tp_tmn/echentillonnage/RGB.bmp", rgb_image)
